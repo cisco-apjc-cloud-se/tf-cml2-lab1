@@ -65,6 +65,42 @@ nodes = {
         x = 500
         y = 700
     }
+    dc1-vrf1-net1-host1 = {
+        nodedefinition = "ubuntu"
+        x = 100
+        y = 600
+        # configuration = ""
+    }
+    dc1-vrf1-net2-host1 = {
+        nodedefinition = "ubuntu"
+        x = 200
+        y = 600
+        # configuration = ""
+    }
+    dc1-vrf1-net1-host2 = {
+        nodedefinition = "ubuntu"
+        x = 300
+        y = 600
+        # configuration = ""
+    }
+    dc1-vrf2-net1-host1 = {
+        nodedefinition = "ubuntu"
+        x = 400
+        y = 600
+        # configuration = ""
+    }
+    dc2-vrf1-net1-host1 = {
+        nodedefinition = "ubuntu"
+        x = 700
+        y = 600
+        # configuration = ""
+    }
+    dc2-vrf2-net1-host1 = {
+        nodedefinition = "ubuntu"
+        x = 800
+        y = 600
+        # configuration = ""
+    }
     wan = {
         nodedefinition = "nxosv9000"
         imagedefinition = "N9K-10-3-2-F"
