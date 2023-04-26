@@ -716,12 +716,16 @@ vrf context management
 interface Vlan101
   no shutdown
   ip address 10.66.209.49/28
-  ip dhcp relay address 10.67.29.36 
+  ip dhcp relay address 10.66.209.2
+  ip dhcp relay address 10.66.209.3
+  ip dhcp relay address 10.66.209.4
 
 interface Vlan102
   no shutdown
   ip address 10.66.209.65/28
-  ip dhcp relay address 10.67.29.36 
+  ip dhcp relay address 10.66.209.2
+  ip dhcp relay address 10.66.209.3
+  ip dhcp relay address 10.66.209.4
 
 interface Vlan103
   no shutdown
