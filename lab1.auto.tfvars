@@ -1,8 +1,8 @@
 nodes = {
-    lab-bridge = {
+    lab = {
         nodedefinition = "external_connector"
         x = 500
-        y = 600
+        y = 700
     }
     oob-mgmt = {
         nodedefinition = "nxosv9000"
