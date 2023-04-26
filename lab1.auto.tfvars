@@ -430,6 +430,257 @@ EOT
         imagedefinition = "N9K-10-3-2-F"
         x = 1000
         y = 0
+        configuration = <<-EOT
+hostname WAN
+feature bgp
+
+no password strength-check
+username admin password 5 $5$NMMAEC$RlM.yAQl18pda0uKw17uYZDATNljly9huqhltTNcQt.  role network-admin
+no ip domain-lookup
+no system default switchport
+
+vlan 1
+
+vrf context management
+  ip route 0.0.0.0/0 10.66.209.65
+
+interface Ethernet1/1
+  description ** DC1-ABGW1 **
+  no shutdown
+
+interface Ethernet1/1.11
+  description ** VRF1 Peering **
+  encapsulation dot1q 11
+  ip address 192.168.254.254/30
+  no shutdown
+
+interface Ethernet1/1.12
+  description ** VRF2 Peering **
+  encapsulation dot1q 12
+  ip address 192.168.253.254/30
+  no shutdown
+
+interface Ethernet1/2
+  description ** DC1-ABGW2 **
+  no shutdown
+
+interface Ethernet1/2.11
+  description ** VRF1 Peering **
+  encapsulation dot1q 11
+  ip address 192.168.254.250/30
+  no shutdown
+
+interface Ethernet1/2.12
+  description ** VRF2 Peering **
+  encapsulation dot1q 12
+  ip address 192.168.253.250/30
+  no shutdown
+
+interface Ethernet1/3
+  description ** DC2-VBGW1 **
+  no shutdown
+
+interface Ethernet1/3.11
+  description ** VRF1 Peering **
+  encapsulation dot1q 11
+  ip address 192.168.254.246/30
+  no shutdown
+
+interface Ethernet1/3.12
+  description ** VRF2 Peering **
+  encapsulation dot1q 12
+  ip address 192.168.253.246/30
+  no shutdown
+
+interface Ethernet1/4
+  description ** DC2-VBGW2 **
+  no shutdown
+
+interface Ethernet1/4.11
+  description ** VRF1 Peering **
+  encapsulation dot1q 11
+  ip address 192.168.254.242/30
+  no shutdown
+
+interface Ethernet1/4.12
+  description ** VRF2 Peering **
+  encapsulation dot1q 12
+  ip address 192.168.253.242/30
+  no shutdown
+
+interface Ethernet1/5
+
+interface Ethernet1/6
+
+interface Ethernet1/7
+
+interface Ethernet1/8
+
+interface Ethernet1/9
+
+interface Ethernet1/10
+
+interface Ethernet1/11
+
+interface Ethernet1/12
+
+interface Ethernet1/13
+
+interface Ethernet1/14
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+
+interface Ethernet1/17
+
+interface Ethernet1/18
+
+interface Ethernet1/19
+
+interface Ethernet1/20
+
+interface Ethernet1/21
+
+interface Ethernet1/22
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+
+interface Ethernet1/33
+
+interface Ethernet1/34
+
+interface Ethernet1/35
+
+interface Ethernet1/36
+
+interface Ethernet1/37
+
+interface Ethernet1/38
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+
+interface Ethernet1/49
+
+interface Ethernet1/50
+
+interface Ethernet1/51
+
+interface Ethernet1/52
+
+interface Ethernet1/53
+
+interface Ethernet1/54
+
+interface Ethernet1/55
+
+interface Ethernet1/56
+
+interface Ethernet1/57
+
+interface Ethernet1/58
+
+interface Ethernet1/59
+
+interface Ethernet1/60
+
+interface Ethernet1/61
+
+interface Ethernet1/62
+
+interface Ethernet1/63
+
+interface Ethernet1/64
+
+interface mgmt0
+  vrf member management
+  ip address 10.66.209.73/28
+
+interface loopback0
+  ip address 192.168.255.255/32
+icam monitor scale
+
+line console
+  exec-timeout 0
+line vty
+  exec-timeout 0
+router bgp 65010
+  bestpath as-path multipath-relax
+  bestpath always-compare-med
+  address-family ipv4 unicast
+    network 192.168.255.255/32
+    maximum-paths 4
+  neighbor 192.168.254.253
+    remote-as 65011
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+  neighbor 192.168.254.249
+    remote-as 65011
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+  neighbor 192.168.254.245
+    remote-as 65012
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+  neighbor 192.168.254.241
+    remote-as 65012
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+  neighbor 192.168.253.253
+    remote-as 65011
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+  neighbor 192.168.253.249
+    remote-as 65011
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+  neighbor 192.168.253.245
+    remote-as 65012
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+  neighbor 192.168.253.241
+    remote-as 65012
+    address-family ipv4 unicast
+      soft-reconfiguration inbound
+
+no logging console
+EOT
     }
     lab = {
         nodedefinition = "external_connector"
