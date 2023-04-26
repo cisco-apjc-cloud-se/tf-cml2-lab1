@@ -571,7 +571,7 @@ links = {
         slot_b = 18
     }
     dc2-v2-n1-h1-oob = {
-        node_a = "dc1-vrf2-net1-host1"
+        node_a = "dc2-vrf2-net1-host1"
         slot_a = 0
         node_b = "oob-mgmt"
         slot_b = 19
