@@ -59,12 +59,6 @@ nodes = {
         x = 1600
         y = 400
     }
-    lab = {
-        nodedefinition = "external_connector"
-        configuration = "bridge0"
-        x = 1000
-        y = 1400
-    }
     dc1-vrf1-net1-host1 = {
         nodedefinition = "ubuntu"
         x = 200
@@ -107,11 +101,17 @@ nodes = {
         x = 1000
         y = 0
     }
+    lab = {
+        nodedefinition = "external_connector"
+        configuration = "bridge0"
+        x = 1000
+        y = 700
+    }
     oob-mgmt = {
         nodedefinition = "nxosv9000"
         imagedefinition = "N9K-10-3-2-F"
         x = 1000
-        y = 1200
+        y = 900
         configuration = <<-EOT
 hostname OOB-MGMT
 feature interface-vlan
