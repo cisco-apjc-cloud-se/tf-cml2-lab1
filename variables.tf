@@ -13,10 +13,11 @@ variable "cml2_password" {
 
 variable "nodes" {
   type = map(object({
-    nodedefinition = string
+    nodedefinition  = string
     imagedefinition = optional(string)
-    x = number
-    y = number
+    configuration   = optional(string)
+    x               = number
+    y               = number
   }))
 }
 

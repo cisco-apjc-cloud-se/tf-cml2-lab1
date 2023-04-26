@@ -15,8 +15,8 @@ resource "cml2_node" "nodes" {
     label               = each.key
     nodedefinition      = each.value.nodedefinition
     imagedefinition     = each.value.imagedefinition
+    configuration       = each.value.configuration
     # boot_disk_size
-    # configuration 
     # cpu_limit
     # cpus
     # data_volume

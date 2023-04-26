@@ -1,6 +1,7 @@
 nodes = {
     lab = {
         nodedefinition = "external_connector"
+        configuration = "bridge0"
         x = 500
         y = 700
     }
@@ -12,4 +13,11 @@ nodes = {
     }
 }
 
-links = {}
+links = {
+    lab-oob = {
+        node_a = "lab"
+        slot_a = "1"
+        node_b = "oob-mgmt"
+        slot_b = "2"
+    }
+}
