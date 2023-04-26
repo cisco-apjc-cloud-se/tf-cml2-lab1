@@ -47,6 +47,18 @@ nodes = {
         x = 300
         y = 200
     }
+    dc2-vbgw1 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 700
+        y = 100
+    }
+    dc2-vbgw2 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 800
+        y = 200
+    }
     lab = {
         nodedefinition = "external_connector"
         configuration = "bridge0"
@@ -56,7 +68,7 @@ nodes = {
     wan = {
         nodedefinition = "nxosv9000"
         imagedefinition = "N9K-10-3-2-F"
-        x = 100
+        x = 500
         y = 0
     }
     oob-mgmt = {
