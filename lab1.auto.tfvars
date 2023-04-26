@@ -3,37 +3,37 @@ nodes = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 200
-        y = 200
+        y = 300
     }
     dc1-spine2 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 300
-        y = 200
+        y = 300
     }
     dc1-leaf1 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 100
-        y = 300
+        y = 400
     }
     dc1-leaf2 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 200
-        y = 300
+        y = 400
     }
     dc1-leaf3 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 300
-        y = 300
+        y = 400
     }
     dc1-leaf4 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 400
-        y = 300
+        y = 400
     }
     dc1-abgw1 = {
         nodedefinition = "nxosv9000poap"
@@ -45,7 +45,7 @@ nodes = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 300
-        y = 100
+        y = 200
     }
     lab = {
         nodedefinition = "external_connector"
@@ -53,11 +53,17 @@ nodes = {
         x = 500
         y = 700
     }
+    wan = {
+        nodedefinition = "nxosv9000"
+        imagedefinition = "N9K-10-3-2-F"
+        x = 100
+        y = 0
+    }
     oob-mgmt = {
         nodedefinition = "nxosv9000"
         imagedefinition = "N9K-10-3-2-F"
         x = 500
-        y = 500
+        y = 600
         configuration = <<-EOT
 hostname OOB-MGMT
 feature interface-vlan
