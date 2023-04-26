@@ -185,19 +185,17 @@ interface Ethernet1/9
   switchport access vlan 101
 
 interface Ethernet1/10
-  description **DC1-ABGW2**
-  switchport access vlan 101
 
 interface Ethernet1/11
   description **DC1-VRF1-NET1-HOST1**
   switchport access vlan 103
 
 interface Ethernet1/12
-  description **DC1-VRF1-NET1-HOST2**
+  description **DC1-VRF1-NET2-HOST1**
   switchport access vlan 103
 
 interface Ethernet1/13
-  description **DC1-VRF1-NET2-HOST1**
+  description **DC1-VRF1-NET1-HOST2**
   switchport access vlan 103
 
 interface Ethernet1/14
@@ -332,10 +330,324 @@ EOT
 }
 
 links = {
+  ### DC1 SWITCH LINKS ###
+  dc1-spine1-leaf1 = {
+        node_a = "dc1-spine1"
+        slot_a = 1
+        node_b = "dc1-leaf1"
+        slot_b = 1
+  }
+  dc1-spine1-leaf2 = {
+        node_a = "dc1-spine1"
+        slot_a = 2
+        node_b = "dc1-leaf2"
+        slot_b = 1
+  }
+  dc1-spine1-leaf3 = {
+        node_a = "dc1-spine1"
+        slot_a = 3
+        node_b = "dc1-leaf3"
+        slot_b = 1
+  }
+  dc1-spine1-leaf4 = {
+        node_a = "dc1-spine1"
+        slot_a = 4
+        node_b = "dc1-leaf4"
+        slot_b = 1
+  }
+  dc1-spine1-abgw1 = {
+        node_a = "dc1-spine1"
+        slot_a = 5
+        node_b = "dc1-abgw1"
+        slot_b = 1
+  }
+  dc1-spine1-abgw2 = {
+        node_a = "dc1-spine1"
+        slot_a = 6
+        node_b = "dc1-abgw2"
+        slot_b = 1
+  }
+  dc1-spine2-leaf1 = {
+        node_a = "dc1-spine2"
+        slot_a = 1
+        node_b = "dc1-leaf1"
+        slot_b = 2
+  }
+  dc1-spine2-leaf2 = {
+        node_a = "dc1-spine2"
+        slot_a = 2
+        node_b = "dc1-leaf2"
+        slot_b = 2
+  }
+  dc1-spine2-leaf3 = {
+        node_a = "dc1-spine2"
+        slot_a = 3
+        node_b = "dc1-leaf3"
+        slot_b = 2
+  }
+  dc1-spine2-leaf4 = {
+        node_a = "dc1-spine2"
+        slot_a = 4
+        node_b = "dc1-leaf4"
+        slot_b = 2
+  }
+  dc1-spine2-abgw1 = {
+        node_a = "dc1-spine2"
+        slot_a = 5
+        node_b = "dc1-abgw1"
+        slot_b = 2
+  }
+  dc1-spine2-abgw2 = {
+        node_a = "dc1-spine2"
+        slot_a = 6
+        node_b = "dc1-abgw2"
+        slot_b = 2
+  }
+  ### DC1 ABGW LINKS ###
+  dc1-abgw1-abgw2-1 = {
+        node_a = "dc1-abgw1"
+        slot_a = 3
+        node_b = "dc1-abgw2"
+        slot_b = 3
+  }
+  dc1-abgw1-abgw2-2 = {
+        node_a = "dc1-abgw1"
+        slot_a = 4
+        node_b = "dc1-abgw2"
+        slot_b = 4
+  }
+  ### DC2 VBGW LINKS ###
+  dc2-vbgw1-vbgw2-1 = {
+        node_a = "dc2-vbgw1"
+        slot_a = 3
+        node_b = "dc2-vbgw2"
+        slot_b = 3
+  }
+  dc2-vbgw1-vbgw2-2 = {
+        node_a = "dc2-vbgw1"
+        slot_a = 4
+        node_b = "dc2-vbgw2"
+        slot_b = 4
+  }
+  ### L2 DCI LINKS ###
+  abgw1-vbgw2 = {
+        node_a = "dc1-abgw1"
+        slot_a = 5
+        node_b = "dc2-vbgw1"
+        slot_b = 5
+  }
+  abgw2-vbgw2 = {
+        node_a = "dc1-abgw2"
+        slot_a = 5
+        node_b = "dc2-vbgw2"
+        slot_b = 5
+  }
+  ### WAN LINKS ###
+  dc1-abgw1-wan = {
+        node_a = "dc1-abgw1"
+        slot_a = 6
+        node_b = "wan"
+        slot_b = 1
+  }
+  dc1-abgw2-wan = {
+        node_a = "dc1-abgw2"
+        slot_a = 6
+        node_b = "wan"
+        slot_b = 2
+  }
+  dc2-vbgw1-wan = {
+        node_a = "dc2-vbgw1"
+        slot_a = 6
+        node_b = "wan"
+        slot_b = 3
+  }
+  dc2-vbgw2-wan = {
+        node_a = "dc2-vbgw2"
+        slot_a = 6
+        node_b = "wan"
+        slot_b = 4
+  } 
+  ### OOB MGMT LINKS ###
     lab-oob = {
         node_a = "lab"
-        slot_a = "0"
+        slot_a = 0
         node_b = "oob-mgmt"
-        slot_b = "1"
+        slot_b = 1
+    }
+    dc1-spine1-oob = {
+        node_a = "dc1-spine1"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 2
+    }
+    dc1-spine2-oob = {
+        node_a = "dc1-spine2"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 3
+    }
+    dc1-leaf1-oob = {
+        node_a = "dc1-leaf1"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 4
+    }
+    dc1-leaf2-oob = {
+        node_a = "dc1-leaf2"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 5
+    }
+    dc1-leaf3-oob = {
+        node_a = "dc1-leaf3"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 6
+    }
+    dc1-leaf4-oob = {
+        node_a = "dc1-leaf4"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 7
+    }
+    dc1-abgw1-oob = {
+        node_a = "dc1-abgw1"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 8
+    }
+    dc1-abgw2-oob = {
+        node_a = "dc1-abgw2"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 9
+    }
+    dc1-v1-n1-h1-oob = {
+        node_a = "dc1-vrf1-net1-host1"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 11
+    }
+    dc1-v1-n2-h1-oob = {
+        node_a = "dc1-vrf1-net2-host1"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 12
+    }
+    dc1-v1-n1-h2-oob = {
+        node_a = "dc1-vrf1-net1-host2"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 13
+    }
+    dc1-v2-n1-h1-oob = {
+        node_a = "dc1-vrf2-net1-host1"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 14
+    }
+    wan-oob = {
+        node_a = "wan"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 15
+    }
+    dc2-vbgw1-oob = {
+        node_a = "dc2-vbgw1"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 16
+    }
+    dc2-vbgw2-oob = {
+        node_a = "dc2-vbgw2"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 17
+    }
+    dc2-v1-n1-h1-oob = {
+        node_a = "dc2-vbgw2"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 18
+    }
+    dc2-v2-n1-h1-oob = {
+        node_a = "dc2-vbgw2"
+        slot_a = 0
+        node_b = "oob-mgmt"
+        slot_b = 19
+    }
+  ### DC1 HOST LINKS ###
+    dc1-v1-n1-h1-leaf1 = {
+        node_a = "dc1-vrf1-net1-host1"
+        slot_a = 1
+        node_b = "dc1-leaf1"
+        slot_b = 7
+    }
+    dc1-v1-n1-h1-leaf2 = {
+        node_a = "dc1-vrf1-net1-host1"
+        slot_a = 1
+        node_b = "dc1-leaf2"
+        slot_b = 7
+    }
+    dc1-v1-n2-h1-leaf1 = {
+        node_a = "dc1-vrf1-net2-host1"
+        slot_a = 1
+        node_b = "dc1-leaf1"
+        slot_b = 8
+    }
+    dc1-v1-n2-h1-leaf2 = {
+        node_a = "dc1-vrf1-net2-host1"
+        slot_a = 1
+        node_b = "dc1-leaf2"
+        slot_b = 8
+    }
+    dc1-v1-n1-h2-leaf3 = {
+        node_a = "dc1-vrf1-net1-host2"
+        slot_a = 1
+        node_b = "dc1-leaf3"
+        slot_b = 7
+    }
+    dc1-v1-n1-h2-leaf4 = {
+        node_a = "dc1-vrf1-net1-host2"
+        slot_a = 1
+        node_b = "dc1-leaf4"
+        slot_b = 7
+    }
+    dc1-v2-n1-h1-leaf3 = {
+        node_a = "dc1-vrf2-net1-host1"
+        slot_a = 1
+        node_b = "dc1-leaf3"
+        slot_b = 8
+    }
+    dc1-v2-n1-h1-leaf4 = {
+        node_a = "dc1-vrf2-net1-host1"
+        slot_a = 1
+        node_b = "dc1-leaf4"
+        slot_b = 8
+    }
+  ### DC2 HOST LINKS ###
+    dc2-v1-n1-h1-vbgw1 = {
+        node_a = "dc2-vrf1-net1-host1"
+        slot_a = 1
+        node_b = "dc2-vbgw1"
+        slot_b = 7
+    }
+    dc2-v1-n1-h1-vbgw2 = {
+        node_a = "dc2-vrf1-net1-host1"
+        slot_a = 1
+        node_b = "dc2-vbgw2"
+        slot_b = 7
+    }
+    dc2-v2-n1-h1-vbgw1 = {
+        node_a = "dc2-vrf2-net1-host1"
+        slot_a = 1
+        node_b = "dc2-vbgw1"
+        slot_b = 8
+    }
+    dc2-v2-n1-h1-vbgw2 = {
+        node_a = "dc2-vrf2-net1-host1"
+        slot_a = 1
+        node_b = "dc2-vbgw2"
+        slot_b = 8
     }
 }
