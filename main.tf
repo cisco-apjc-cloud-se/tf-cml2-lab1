@@ -1,11 +1,19 @@
 terraform {
-  backend "remote" {
-    hostname = "app.terraform.io"
+  cloud {
     organization = "mel-ciscolabs-com"
+    # hostname = "app.terraform.io" # Optional; defaults to app.terraform.io
+
     workspaces {
       name = "cml2-ndfc-lab1"
     }
   }
+  # backend "remote" {
+  #   hostname = "app.terraform.io"
+  #   organization = "mel-ciscolabs-com"
+  #   workspaces {
+  #     name = "cml2-ndfc-lab1"
+  #   }
+  # }
   required_providers {
     cml2 = {
       source = "CiscoDevNet/cml2"
