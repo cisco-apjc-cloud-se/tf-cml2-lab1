@@ -585,7 +585,7 @@ links = {
     }
     dc1-v1-n1-h1-leaf2 = {
         node_a = "dc1-vrf1-net1-host1"
-        slot_a = 1
+        slot_a = 2
         node_b = "dc1-leaf2"
         slot_b = 7
     }
@@ -597,7 +597,7 @@ links = {
     }
     dc1-v1-n2-h1-leaf2 = {
         node_a = "dc1-vrf1-net2-host1"
-        slot_a = 1
+        slot_a = 2
         node_b = "dc1-leaf2"
         slot_b = 8
     }
@@ -609,7 +609,7 @@ links = {
     }
     dc1-v1-n1-h2-leaf4 = {
         node_a = "dc1-vrf1-net1-host2"
-        slot_a = 1
+        slot_a = 2
         node_b = "dc1-leaf4"
         slot_b = 7
     }
@@ -621,7 +621,7 @@ links = {
     }
     dc1-v2-n1-h1-leaf4 = {
         node_a = "dc1-vrf2-net1-host1"
-        slot_a = 1
+        slot_a = 2
         node_b = "dc1-leaf4"
         slot_b = 8
     }
@@ -634,7 +634,7 @@ links = {
     }
     dc2-v1-n1-h1-vbgw2 = {
         node_a = "dc2-vrf1-net1-host1"
-        slot_a = 1
+        slot_a = 2
         node_b = "dc2-vbgw2"
         slot_b = 7
     }
@@ -646,7 +646,7 @@ links = {
     }
     dc2-v2-n1-h1-vbgw2 = {
         node_a = "dc2-vrf2-net1-host1"
-        slot_a = 1
+        slot_a = 2
         node_b = "dc2-vbgw2"
         slot_b = 8
     }
