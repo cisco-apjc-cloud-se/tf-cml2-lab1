@@ -9,7 +9,7 @@ nodes = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
         x = 300
-        y = 300
+        y = 200
     }
     dc1-leaf1 = {
         nodedefinition = "nxosv9000poap"
