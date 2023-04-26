@@ -105,13 +105,13 @@ nodes = {
         nodedefinition = "external_connector"
         configuration = "bridge0"
         x = 1000
-        y = 700
+        y = 900
     }
     oob-mgmt = {
         nodedefinition = "nxosv9000"
         imagedefinition = "N9K-10-3-2-F"
         x = 1000
-        y = 900
+        y = 700
         configuration = <<-EOT
 hostname OOB-MGMT
 feature interface-vlan
