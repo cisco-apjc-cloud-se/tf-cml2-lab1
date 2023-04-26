@@ -16,8 +16,8 @@ nodes = {
 links = {
     lab-oob = {
         node_a = "lab"
-        slot_a = "1"
+        slot_a = "i0"
         node_b = "oob-mgmt"
-        slot_b = "2"
+        slot_b = "i1"
     }
 }
