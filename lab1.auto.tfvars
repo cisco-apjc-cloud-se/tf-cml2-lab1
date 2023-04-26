@@ -1,4 +1,52 @@
 nodes = {
+    dc1-spine1 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 200
+        y = 200
+    }
+    dc1-spine2 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 300
+        y = 200
+    }
+    dc1-leaf1 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 400
+        y = 100
+    }
+    dc1-leaf2 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 400
+        y = 200
+    }
+    dc1-leaf3 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 400
+        y = 300
+    }
+    dc1-leaf4 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 400
+        y = 400
+    }
+    dc1-abgw1 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 200
+        y = 100
+    }
+    dc1-abgw2 = {
+        nodedefinition = "nxosv9000poap"
+        imagedefinition = "N9K-10-3-2-F2"
+        x = 300
+        y = 100
+    }
     lab = {
         nodedefinition = "external_connector"
         configuration = "bridge0"
