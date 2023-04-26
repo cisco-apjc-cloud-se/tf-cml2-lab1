@@ -435,7 +435,7 @@ hostname WAN
 feature bgp
 
 no password strength-check
-username admin password 5 $5$NMMAEC$RlM.yAQl18pda0uKw17uYZDATNljly9huqhltTNcQt.  role network-admin
+username admin password 5 $5$IIIHDD$KzO6hUIy.rjWwv8PqigpvH4MoDfA.wpjWXk2R0va//0 role network-admin
 no ip domain-lookup
 no system default switchport
 
