@@ -2,116 +2,116 @@ nodes = {
     dc1-spine1 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 200
-        y = 300
+        x = 400
+        y = 600
     }
     dc1-spine2 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 300
-        y = 300
+        x = 600
+        y = 600
     }
     dc1-leaf1 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 100
-        y = 400
+        x = 200
+        y = 800
     }
     dc1-leaf2 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 200
-        y = 400
+        x = 400
+        y = 800
     }
     dc1-leaf3 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 300
-        y = 400
+        x = 600
+        y = 800
     }
     dc1-leaf4 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 400
-        y = 400
+        x = 800
+        y = 800
     }
     dc1-abgw1 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 200
-        y = 100
+        x = 400
+        y = 200
     }
     dc1-abgw2 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 300
-        y = 200
+        x = 600
+        y = 400
     }
     dc2-vbgw1 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 700
-        y = 100
+        x = 1400
+        y = 200
     }
     dc2-vbgw2 = {
         nodedefinition = "nxosv9000poap"
         imagedefinition = "N9K-10-3-2-F2"
-        x = 800
-        y = 200
+        x = 1600
+        y = 400
     }
     lab = {
         nodedefinition = "external_connector"
         configuration = "bridge0"
-        x = 500
-        y = 700
+        x = 1000
+        y = 1400
     }
     dc1-vrf1-net1-host1 = {
         nodedefinition = "ubuntu"
-        x = 100
-        y = 600
+        x = 200
+        y = 1000
         # configuration = ""
     }
     dc1-vrf1-net2-host1 = {
         nodedefinition = "ubuntu"
-        x = 200
-        y = 600
+        x = 400
+        y = 1000
         # configuration = ""
     }
     dc1-vrf1-net1-host2 = {
         nodedefinition = "ubuntu"
-        x = 300
-        y = 600
+        x = 600
+        y = 1000
         # configuration = ""
     }
     dc1-vrf2-net1-host1 = {
         nodedefinition = "ubuntu"
-        x = 400
-        y = 600
+        x = 800
+        y = 1000
         # configuration = ""
     }
     dc2-vrf1-net1-host1 = {
         nodedefinition = "ubuntu"
-        x = 700
-        y = 600
+        x = 1400
+        y = 1000
         # configuration = ""
     }
     dc2-vrf2-net1-host1 = {
         nodedefinition = "ubuntu"
-        x = 800
-        y = 600
+        x = 1600
+        y = 1000
         # configuration = ""
     }
     wan = {
         nodedefinition = "nxosv9000"
         imagedefinition = "N9K-10-3-2-F"
-        x = 500
+        x = 1000
         y = 0
     }
     oob-mgmt = {
         nodedefinition = "nxosv9000"
         imagedefinition = "N9K-10-3-2-F"
-        x = 500
-        y = 600
+        x = 1000
+        y = 1200
         configuration = <<-EOT
 hostname OOB-MGMT
 feature interface-vlan
