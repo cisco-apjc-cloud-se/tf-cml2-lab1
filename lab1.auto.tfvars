@@ -63,37 +63,367 @@ nodes = {
         nodedefinition = "ubuntu"
         x = 200
         y = 1000
-        # configuration = ""
+        configuration = <<-EOT
+#cloud-config
+hostname: dc1-vrf1-net1-host1
+manage_etc_hosts: True
+system_info:
+  default_user:
+    name: cisco
+password: cisco
+chpasswd: { expire: False }
+ssh_pwauth: True
+ssh_authorized_keys:
+   - your-ssh-pubkey-line-goes-here
+write_files:
+  - path: /etc/netplan/50-cloud-init.yaml
+    append: false
+    content: |
+      network:
+        version: 2
+        ethernets:
+          ens2:
+            dhcp4: false
+            addresses:
+              - 10.67.53.146/28
+            gateway4: 10.67.53.145
+            nameservers:
+              addresses:
+                - 171.70.168.183
+                - 173.37.87.157
+          ens3:
+            dhcp4: false
+          ens4:
+            dhcp4: false
+        bonds:
+          bond0:
+            interfaces:
+              - ens3
+              - ens4
+            parameters:
+              mode: 802.3ad
+              lacp-rate: fast
+              mii-monitor-interval: 100
+        vlans:
+          vlan.11:
+            id: 11
+            link: bond0
+            addresses:
+              - 192.168.11.2/24
+            routes:
+              - to: 192.168.0.0/16
+                via: 192.168.11.1
+                metric: 3
+runcmd:
+ - ethtool -s ens3 autoneg off speed 1000 duplex full
+ - ethtool -s ens4 autoneg off speed 1000 duplex full
+ - netplan apply
+EOT
     }
     dc1-vrf1-net2-host1 = {
         nodedefinition = "ubuntu"
         x = 400
         y = 1000
-        # configuration = ""
+        configuration = <<-EOT
+#cloud-config
+hostname: dc1-vrf1-net2-host1
+manage_etc_hosts: True
+system_info:
+  default_user:
+    name: cisco
+password: cisco
+chpasswd: { expire: False }
+ssh_pwauth: True
+ssh_authorized_keys:
+   - your-ssh-pubkey-line-goes-here
+write_files:
+  - path: /etc/netplan/50-cloud-init.yaml
+    append: false
+    content: |
+      network:
+        version: 2
+        ethernets:
+          ens2:
+            dhcp4: false
+            addresses:
+              - 10.67.53.149/28
+            gateway4: 10.67.53.145
+            nameservers:
+              addresses:
+                - 171.70.168.183
+                - 173.37.87.157
+          ens3:
+            dhcp4: false
+          ens4:
+            dhcp4: false
+        bonds:
+          bond0:
+            interfaces:
+              - ens3
+              - ens4
+            parameters:
+              mode: 802.3ad
+              lacp-rate: fast
+              mii-monitor-interval: 100
+        vlans:
+          vlan.12:
+            id: 12
+            link: bond0
+            addresses:
+              - 192.168.12.2/24
+            routes:
+              - to: 192.168.0.0/16
+                via: 192.168.12.1
+                metric: 3
+runcmd:
+ - ethtool -s ens3 autoneg off speed 1000 duplex full
+ - ethtool -s ens4 autoneg off speed 1000 duplex full
+ - netplan apply
+EOT
     }
     dc1-vrf1-net1-host2 = {
         nodedefinition = "ubuntu"
         x = 600
         y = 1000
-        # configuration = ""
+        configuration = <<-EOT
+#cloud-config
+hostname: dc1-vrf1-net1-host2
+manage_etc_hosts: True
+system_info:
+  default_user:
+    name: cisco
+password: cisco
+chpasswd: { expire: False }
+ssh_pwauth: True
+ssh_authorized_keys:
+   - your-ssh-pubkey-line-goes-here
+write_files:
+  - path: /etc/netplan/50-cloud-init.yaml
+    append: false
+    content: |
+      network:
+        version: 2
+        ethernets:
+          ens2:
+            dhcp4: false
+            addresses:
+              - 10.67.53.147/28
+            gateway4: 10.67.53.145
+            nameservers:
+              addresses:
+                - 171.70.168.183
+                - 173.37.87.157
+          ens3:
+            dhcp4: false
+          ens4:
+            dhcp4: false
+        bonds:
+          bond0:
+            interfaces:
+              - ens3
+              - ens4
+            parameters:
+              mode: 802.3ad
+              lacp-rate: fast
+              mii-monitor-interval: 100
+        vlans:
+          vlan.11:
+            id: 11
+            link: bond0
+            addresses:
+              - 192.168.11.3/24
+            routes:
+              - to: 192.168.0.0/16
+                via: 192.168.11.1
+                metric: 3
+runcmd:
+ - ethtool -s ens3 autoneg off speed 1000 duplex full
+ - ethtool -s ens4 autoneg off speed 1000 duplex full
+ - netplan apply
+EOT
     }
     dc1-vrf2-net1-host1 = {
         nodedefinition = "ubuntu"
         x = 800
         y = 1000
-        # configuration = ""
+        configuration = <<-EOT
+#cloud-config
+hostname: dc1-vrf2-net1-host1
+manage_etc_hosts: True
+system_info:
+  default_user:
+    name: cisco
+password: cisco
+chpasswd: { expire: False }
+ssh_pwauth: True
+ssh_authorized_keys:
+   - your-ssh-pubkey-line-goes-here
+write_files:
+  - path: /etc/netplan/50-cloud-init.yaml
+    append: false
+    content: |
+      network:
+        version: 2
+        ethernets:
+          ens2:
+            dhcp4: false
+            addresses:
+              - 10.67.53.150/28
+            gateway4: 10.67.53.145
+            nameservers:
+              addresses:
+                - 171.70.168.183
+                - 173.37.87.157
+          ens3:
+            dhcp4: false
+          ens4:
+            dhcp4: false
+        bonds:
+          bond0:
+            interfaces:
+              - ens3
+              - ens4
+            parameters:
+              mode: 802.3ad
+              lacp-rate: fast
+              mii-monitor-interval: 100
+        vlans:
+          vlan.13:
+            id: 13
+            link: bond0
+            addresses:
+              - 192.168.13.2/24
+            routes:
+              - to: 192.168.0.0/16
+                via: 192.168.13.1
+                metric: 3
+runcmd:
+ - ethtool -s ens3 autoneg off speed 1000 duplex full
+ - ethtool -s ens4 autoneg off speed 1000 duplex full
+ - netplan apply
+EOT
     }
     dc2-vrf1-net1-host1 = {
         nodedefinition = "ubuntu"
         x = 1400
         y = 1000
-        # configuration = ""
+        configuration = <<-EOT
+#cloud-config
+hostname: dc2-vrf1-net1-host1
+manage_etc_hosts: True
+system_info:
+  default_user:
+    name: cisco
+password: cisco
+chpasswd: { expire: False }
+ssh_pwauth: True
+ssh_authorized_keys:
+   - your-ssh-pubkey-line-goes-here
+write_files:
+  - path: /etc/netplan/50-cloud-init.yaml
+    append: false
+    content: |
+      network:
+        version: 2
+        ethernets:
+          ens2:
+            dhcp4: false
+            addresses:
+              - 10.67.53.148/28
+            gateway4: 10.67.53.145
+            nameservers:
+              addresses:
+                - 171.70.168.183
+                - 173.37.87.157
+          ens3:
+            dhcp4: false
+          ens4:
+            dhcp4: false
+        bonds:
+          bond0:
+            interfaces:
+              - ens3
+              - ens4
+            parameters:
+              mode: 802.3ad
+              lacp-rate: fast
+              mii-monitor-interval: 100
+        vlans:
+          vlan.11:
+            id: 11
+            link: bond0
+            addresses:
+              - 192.168.11.4/24
+            routes:
+              - to: 192.168.0.0/16
+                via: 192.168.11.1
+                metric: 3
+runcmd:
+ - ethtool -s ens3 autoneg off speed 1000 duplex full
+ - ethtool -s ens4 autoneg off speed 1000 duplex full
+ - netplan apply
+EOT
     }
     dc2-vrf2-net1-host1 = {
         nodedefinition = "ubuntu"
         x = 1600
         y = 1000
-        # configuration = ""
+        configuration = <<-EOT
+#cloud-config
+hostname: dc2-vrf2-net1-host1
+manage_etc_hosts: True
+system_info:
+  default_user:
+    name: cisco
+password: cisco
+chpasswd: { expire: False }
+ssh_pwauth: True
+ssh_authorized_keys:
+   - your-ssh-pubkey-line-goes-here
+write_files:
+  - path: /etc/netplan/50-cloud-init.yaml
+    append: false
+    content: |
+      network:
+        version: 2
+        ethernets:
+          ens2:
+            dhcp4: false
+            addresses:
+              - 10.67.53.151/28
+            gateway4: 10.67.53.145
+            nameservers:
+              addresses:
+                - 171.70.168.183
+                - 173.37.87.157
+          ens3:
+            dhcp4: false
+          ens4:
+            dhcp4: false
+        bonds:
+          bond0:
+            interfaces:
+              - ens3
+              - ens4
+            parameters:
+              mode: 802.3ad
+              lacp-rate: fast
+              mii-monitor-interval: 100
+        vlans:
+          vlan.13:
+            id: 13
+            link: bond0
+            addresses:
+              - 192.168.13.3/24
+            routes:
+              - to: 192.168.0.0/16
+                via: 192.168.13.1
+                metric: 3
+runcmd:
+ - ethtool -s ens3 autoneg off speed 1000 duplex full
+ - ethtool -s ens4 autoneg off speed 1000 duplex full
+ - netplan apply
+EOT
     }
     wan = {
         nodedefinition = "nxosv9000"
