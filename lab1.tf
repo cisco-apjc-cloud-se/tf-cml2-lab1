@@ -30,8 +30,8 @@ resource "cml2_link" "links" {
     for_each = var.links
 
     lab_id = cml2_lab.tf-ndfc-vxlan-lab1.id
-    node_a = each.value.node_a
+    node_a = cml2_node.nodes[each.value.node_a].id
     slot_a = each.value.slot_a
-    node_b = each.value.node_b
+    node_b = cml2_node.nodes[each.value.node_b].id
     slot_b = each.value.slot_b
 }
